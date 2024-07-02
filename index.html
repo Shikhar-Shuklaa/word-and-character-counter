@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>world counter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            background-color: aqua;
+            margin: 0;
+        }
+        #textbox{
+            width: 99.5%;
+            height: 200px;
+            border-color: aqua ;
+            font-size: 20px;
+        }
+        p{
+            text-align: center;
+            background-color: aqua;
+            font-size: 25px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>world and character counter</h1>
+    <textarea id="textbox"></textarea>
+    <p>
+        <span id="world"> 0 </span>world and
+        <span id="char"> 0 </span>character
+    </p>
+    <script>
+        let textbox = document.getElementById("textbox")
+        textbox.addEventListener('input',function(){
+            var text = this.value
+            let char = text.length
+            document.getElementById('char').innerHTML = char
+            text = text.trim()
+            let worlds = text.split(' ')
+            let cleanlist = worlds.filter(function(elm){
+                return elm != ""
+            })
+            document.getElementById('world').innerHTML = cleanlist.length
+        })
+    </script>
+</body>
+</html>
